@@ -1,0 +1,30 @@
+A template for a new robot called <turtlebot> has been 
+added to the <turtlebot_sim> environment.
+
+----------------------------------------------------------
+To complete the equipment of your robot, edit:
+/home/syllogismrxs/repos/syllo-morse/turtlebot_sim/src/turtlebot_sim/builder/robots/turtlebot.py
+
+You can also modify its Blender mesh:
+/home/syllogismrxs/repos/syllo-morse/turtlebot_sim/data/turtlebot_sim/robots/turtlebot.blend
+
+For advanced usage, you may also edit its internal 
+definition here:
+/home/syllogismrxs/repos/syllo-morse/turtlebot_sim/src/turtlebot_sim/robots/turtlebot.py
+----------------------------------------------------------
+
+To use the robot in your simulation script, add the following
+lines:
+
+
+from turtlebot_sim.builder.robots import Turtlebot
+
+# add a new turtlebot robot in the simulation
+turtlebot = Turtlebot()
+#turtlebot.translate(...)
+#turtlebot.add_default_interface('socket')
+
+
+----------------------------------------------------------
+Happy simulation!
+

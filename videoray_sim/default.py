@@ -8,10 +8,9 @@ Feel free to edit this template as you like!
 from morse.builder import *
 from videoray_sim.builder.robots import Videoray
 
-# Add the MORSE mascott, MORSY.
-# Out-the-box available robots are listed here:
-# http://www.openrobots.org/morse/doc/stable/components_library.html
-#
+
+human = Human()
+
 # 'morse add robot <name> videoray_sim' can help you to build custom robots.
 #robot = Morsy()
 robot = Videoray()
@@ -52,7 +51,8 @@ robot.add_default_interface('socket')
 
 
 # set 'fastmode' to True to switch to wireframe mode
-env = Environment('sandbox', fastmode = False)
+#env = Environment('sandbox', fastmode = False)
+env = Environment('water-1/water_scene', fastmode = False)
 env.place_camera([10.0, -10.0, 10.0])
 env.aim_camera([1.05, 0, 0.78])
 
