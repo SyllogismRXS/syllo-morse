@@ -1,3 +1,5 @@
 #!/bin/bash
 
-echo "Nothing now..."
+echo "Cleaning pycaches..."
+
+find . -name '*pycache*' | xargs rm -rf
