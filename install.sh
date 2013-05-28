@@ -18,18 +18,18 @@ then
     echo 'export PATH=${PATH}:~/apps/blender-2.67a-linux-glibc211-x86_64' >> ${ENV_VAR_FILE}
 
     echo "export MORSE_RESOURCE_PATH=${PWD}/turtlebot_sim/data" >> ${ENV_VAR_FILE}                           
-    echo "export PYTHONPATH=${PWD}/turtlebot_sim/src:${PYTHONPATH}" >> ${ENV_VAR_FILE}
+    echo "export PYTHONPATH=${PWD}"'/turtlebot_sim/src:${PYTHONPATH}' >> ${ENV_VAR_FILE}
     
-    echo "export MORSE_RESOURCE_PATH=${MORSE_RESOURCE_PATH}:${PWD}/videoray_sim/data" >> ${ENV_VAR_FILE}
-    echo "export PYTHONPATH=${PWD}/videoray_sim/src:${PYTHONPATH}" >> ${ENV_VAR_FILE}
+    echo 'export MORSE_RESOURCE_PATH=${MORSE_RESOURCE_PATH}:'"${PWD}/videoray_sim/data" >> ${ENV_VAR_FILE}
+    echo "export PYTHONPATH=${PWD}"'/videoray_sim/src:${PYTHONPATH}' >> ${ENV_VAR_FILE}
     
-    echo "export MORSE_RESOURCE_PATH=${MORSE_RESOURCE_PATH}:${PWD}/diver_sim/data" >> ${ENV_VAR_FILE}
-    echo "export PYTHONPATH=${PWD}/diver_sim/src:${PYTHONPATH}" >> ${ENV_VAR_FILE}
+    echo 'export MORSE_RESOURCE_PATH=${MORSE_RESOURCE_PATH}:'"${PWD}/diver_sim/data" >> ${ENV_VAR_FILE}
+    echo "export PYTHONPATH=${PWD}"'/diver_sim/src:${PYTHONPATH}' >> ${ENV_VAR_FILE}
     
-    echo "export MORSE_RESOURCE_PATH=${MORSE_RESOURCE_PATH}:${PWD}/uhri_sim/data" >> ${ENV_VAR_FILE}
-    echo "export PYTHONPATH=${PWD}/uhri_sim/src:${PYTHONPATH}" >> ${ENV_VAR_FILE}
+    echo 'export MORSE_RESOURCE_PATH=${MORSE_RESOURCE_PATH}:'"${PWD}/uhri_sim/data" >> ${ENV_VAR_FILE}
+    echo "export PYTHONPATH=${PWD}"'/uhri_sim/src:${PYTHONPATH}' >> ${ENV_VAR_FILE}
     
-    echo "export MORSE_RESOURCE_PATH=${MORSE_RESOURCE_PATH}:${PWD}" >> ${ENV_VAR_FILE}
+    echo 'export MORSE_RESOURCE_PATH=${MORSE_RESOURCE_PATH}:'"${PWD}" >> ${ENV_VAR_FILE}
 
     chmod +x ${ENV_VAR_FILE}
 
