@@ -42,3 +42,36 @@ else
 fi
 
 source $ENV_VAR_FILE
+
+
+#
+# Create and install MORSE config file
+# Install location: ~/.morse/config
+#
+
+CONFIG_FILE="config"
+
+if [ ! -f ${CONFIG_FILE} ];
+then
+    WORK_DIR=${PWD}
+    NEW_FILE_PATH=${PWD}/${CONFIG_FILE}
+    
+    echo '[sites]' > ${CONFIG_FILE}
+    
+    echo "turtlebot_sim = ${PWD}/turtlebot_sim" >> ${CONFIG_FILE}
+    echo "diver_sim = ${PWD}/diver_sim" >> ${CONFIG_FILE}
+    echo "uhri_sim = ${PWD}/uhri_sim" >> ${CONFIG_FILE}
+    echo "videoray_sim = ${PWD}/videoray_sim" >> ${CONFIG_FILE}
+
+    # Link config file to ~/.morse/config
+    if [ ! -d "~/.morse" ]; then
+        mkdir ~/.morse
+    fi
+    
+    pushd ~/.morse >& /dev/null
+    ln -s ${WORK_DIR}/${CONFIG_FILE} .
+    popd >& /dev/null
+
+else
+    echo "Config file already exists, execute ./uninstall.sh to remove"
+fi
