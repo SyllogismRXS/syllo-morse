@@ -7,7 +7,7 @@ Feel free to edit this template as you like!
 
 from morse.builder import *
 from videoray_sim.builder.robots import Videoray
-
+from videoray_sim.builder.actuators import Vomegazdiffdrive
 
 # 'morse add robot <name> videoray_sim' can help you to build custom robots.
 #robot = Morsy()
@@ -23,13 +23,16 @@ robot.translate(0.0, 0.0, 2)
 #
 # 'morse add actuator <name> videoray_sim' can help you with the creation of a custom
 # actuator.
-motion = MotionVW()
+#motion = MotionVW()
+#robot.append(motion)
+
+# create a new vomegazdiffdrive actuator
+motion = Vomegazdiffdrive()
 robot.append(motion)
 
-
 # Add a keyboard controller to move the robot with arrow keys.
-keyboard = Keyboard()
-robot.append(keyboard)
+#keyboard = Keyboard()
+#robot.append(keyboard)
 
 # Add a pose sensor that exports the current location and orientation
 # of the robot in the world frame

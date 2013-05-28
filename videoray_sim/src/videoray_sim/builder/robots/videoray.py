@@ -18,13 +18,13 @@ class Videoray(Robot):
         # (v,w) motion controller
         # Check here the other available actuators:
         # http://www.openrobots.org/morse/doc/stable/components_library.html#actuators
-        self.motion = MotionVW()
-        self.append(self.motion)
+        #self.motion = MotionVW()
+        #self.append(self.motion)
 
         # Optionally allow to move the robot with the keyboard
-        if debug:
-            keyboard = Keyboard()
-            self.append(keyboard)
+        #if debug:
+            #keyboard = Keyboard()
+            #self.append(keyboard)
 
         ###################################
         # Sensors
