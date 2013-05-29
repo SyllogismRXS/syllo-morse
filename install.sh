@@ -8,14 +8,16 @@ then
     NEW_FILE_PATH=${PWD}/$ENV_VAR_FILE
     #DDS_VARS=$(readlink -f ../third-party-build/DDS/setenv.sh)
 
+    BLENDER_EXEC=$(readlink -f ~/apps/blender-2*/blender)
+
     echo 'export MORSE_ROOT=/opt/morse' > ${ENV_VAR_FILE}
     
     echo 'export PATH=/opt/morse/bin:${PATH}' >> ${ENV_VAR_FILE}
-    echo 'export MORSE_BLENDER=~/apps/blender-2.67a-linux-glibc211-x86_64/blender' >> ${ENV_VAR_FILE}
+    echo "export MORSE_BLENDER=${BLENDER_EXEC}" >> ${ENV_VAR_FILE}
     echo 'export PYTHONPATH=/opt/morse/lib/python3.3/site-packages:${PYTHONPATH}' >> ${ENV_VAR_FILE}
 
     echo 'export QTDIR=/usr/share/qt4' >> ${ENV_VAR_FILE}
-    echo 'export PATH=${PATH}:~/apps/blender-2.67a-linux-glibc211-x86_64' >> ${ENV_VAR_FILE}
+    echo 'export PATH=${PATH}:'"~/apps/blender-2*" >> ${ENV_VAR_FILE}
 
     echo "export MORSE_RESOURCE_PATH=${PWD}/turtlebot_sim/data" >> ${ENV_VAR_FILE}                           
     echo "export PYTHONPATH=${PWD}"'/turtlebot_sim/src:${PYTHONPATH}' >> ${ENV_VAR_FILE}
