@@ -11,11 +11,11 @@ from videoray_sim.builder.actuators import Vomegazdiffdrive
 
 # 'morse add robot <name> videoray_sim' can help you to build custom robots.
 #robot = Morsy()
-robot = Videoray()
+videoray = Videoray()
 
 # The list of the main methods to manipulate your components
 # is here: http://www.openrobots.org/morse/doc/stable/user/builder_overview.html
-robot.translate(0.0, 0.0, 2)
+videoray.translate(0.0, 0.0, 0)
 
 # Add a motion controller
 # Check here the other available actuators:
@@ -28,7 +28,8 @@ robot.translate(0.0, 0.0, 2)
 
 # create a new vomegazdiffdrive actuator
 motion = Vomegazdiffdrive()
-robot.append(motion)
+#motion = MotionVW()
+videoray.append(motion)
 
 # Add a keyboard controller to move the robot with arrow keys.
 #keyboard = Keyboard()
@@ -42,13 +43,23 @@ robot.append(motion)
 # 'morse add sensor <name> videoray_sim' can help you with the creation of a custom
 # sensor.
 pose = Pose()
-robot.append(pose)
+videoray.append(pose)
+
+#velocity = Velocity()
+#velocity.translate(0,0,0)
+#velocity.rotate(0,0,0)
+#videoray.append(velocity)
+
+accelerometer = Accelerometer()
+accelerometer.translate(0,0,0)
+accelerometer.rotate(0,0,0)
+videoray.append(accelerometer)
 
 # To ease development and debugging, we add a socket interface to our robot.
 #
 # Check here: http://www.openrobots.org/morse/doc/stable/user/integration.html 
 # the other available interfaces (like ROS, YARP...)
-robot.add_default_interface('socket')
+videoray.add_default_interface('ros')
 
 
 # set 'fastmode' to True to switch to wireframe mode
