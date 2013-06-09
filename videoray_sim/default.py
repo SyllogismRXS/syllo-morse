@@ -1,13 +1,8 @@
 #! /usr/bin/env morseexec
-
-""" Basic MORSE simulation scene for <videoray_sim> environment
-
-Feel free to edit this template as you like!
-"""
-
 from morse.builder import *
 from videoray_sim.builder.robots import Videoray
 from videoray_sim.builder.actuators import Vomegazdiffdrive
+from videoray_sim.builder.sensors import Completestate
 
 # 'morse add robot <name> videoray_sim' can help you to build custom robots.
 #robot = Morsy()
@@ -28,8 +23,13 @@ videoray.translate(0.0, 0.0, 0)
 
 # create a new vomegazdiffdrive actuator
 motion = Vomegazdiffdrive()
-#motion = MotionVW()
 videoray.append(motion)
+
+#completestate = Completestate()
+#videoray.append(completestate)
+
+odometry = Odometry()
+videoray.append(odometry)
 
 # Add a keyboard controller to move the robot with arrow keys.
 #keyboard = Keyboard()
@@ -50,10 +50,10 @@ videoray.append(pose)
 #velocity.rotate(0,0,0)
 #videoray.append(velocity)
 
-accelerometer = Accelerometer()
-accelerometer.translate(0,0,0)
-accelerometer.rotate(0,0,0)
-videoray.append(accelerometer)
+#accelerometer = Accelerometer()
+#accelerometer.translate(0,0,0)
+#accelerometer.rotate(0,0,0)
+#videoray.append(accelerometer)
 
 # To ease development and debugging, we add a socket interface to our robot.
 #
