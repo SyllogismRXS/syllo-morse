@@ -22,14 +22,16 @@ videoray.translate(0.0, 0.0, 0)
 #robot.append(motion)
 
 # create a new vomegazdiffdrive actuator
-motion = Vomegazdiffdrive()
+#motion = Vomegazdiffdrive()
+#videoray.append(motion)
+motion = Teleport()
 videoray.append(motion)
 
 #completestate = Completestate()
 #videoray.append(completestate)
 
-odometry = Odometry()
-videoray.append(odometry)
+#odometry = Odometry()
+#videoray.append(odometry)
 
 # Add a keyboard controller to move the robot with arrow keys.
 #keyboard = Keyboard()
@@ -42,8 +44,8 @@ videoray.append(odometry)
 #
 # 'morse add sensor <name> videoray_sim' can help you with the creation of a custom
 # sensor.
-pose = Pose()
-videoray.append(pose)
+#pose = Pose()
+#videoray.append(pose)
 
 #velocity = Velocity()
 #velocity.translate(0,0,0)
