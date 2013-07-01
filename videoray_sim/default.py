@@ -10,7 +10,7 @@ videoray = Videoray()
 
 # The list of the main methods to manipulate your components
 # is here: http://www.openrobots.org/morse/doc/stable/user/builder_overview.html
-videoray.translate(0.0, 0.0, 0)
+videoray.translate(0.0, 0.0, 3.6)
 
 # Add a motion controller
 # Check here the other available actuators:
