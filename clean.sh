@@ -6,7 +6,7 @@ rm config
 rm -rf ~/.morse
 
 echo "Cleaning pycaches..."
-find . -name '*pycache*' | xargs rm -rf
+find . -name '*pycache*' -not -path "./3rd-party-build/*" | xargs rm -rf
 
 echo "Cleaning blender files..."
 find -regex '.*blend[1234567890]' | xargs rm
