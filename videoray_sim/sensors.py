@@ -1,0 +1,80 @@
+#! /usr/bin/env morseexec
+from morse.builder import *
+from videoray_sim.builder.robots import Videoray
+from videoray_sim.builder.actuators import Vomegazdiffdrive
+from videoray_sim.builder.sensors import Completestate
+
+# 'morse add robot <name> videoray_sim' can help you to build custom robots.
+#robot = Morsy()
+videoray = Videoray()
+
+# The list of the main methods to manipulate your components
+# is here: http://www.openrobots.org/morse/doc/stable/user/builder_overview.html
+videoray.translate(0.0, 0.0, 3.6)
+
+# Add a motion controller
+# Check here the other available actuators:
+# http://www.openrobots.org/morse/doc/stable/components_library.html#actuators
+#
+# 'morse add actuator <name> videoray_sim' can help you with the creation of a custom
+# actuator.
+#motion = MotionVW()
+#robot.append(motion)
+
+# create a new vomegazdiffdrive actuator
+#motion = Vomegazdiffdrive()
+#videoray.append(motion)
+#motion = Teleport()
+#videoray.append(motion)
+
+# Add a keyboard controller to move the robot with arrow keys.
+keyboard = Keyboard()
+videoray.append(keyboard)
+
+# creates a new instance of the sensor
+videocamera = VideoCamera()
+
+# place your component at the correct location
+videoray.append(videocamera)
+videocamera.rotate(0,0,0)
+videocamera.translate(0.9,0,0.5)
+
+# define one or several communication interface, like 'socket'
+videocamera.add_interface('ros')
+
+
+# Add a pose sensor that exports the current location and orientation
+# of the robot in the world frame
+# Check here the other available actuators:
+# http://www.openrobots.org/morse/doc/stable/components_library.html#sensors
+#
+# 'morse add sensor <name> videoray_sim' can help you with the creation of a custom
+# sensor.
+#pose = Pose()
+#videoray.append(pose)
+
+#velocity = Velocity()
+#velocity.translate(0,0,0)
+#velocity.rotate(0,0,0)
+#videoray.append(velocity)
+
+#accelerometer = Accelerometer()
+#accelerometer.translate(0,0,0)
+#accelerometer.rotate(0,0,0)
+#videoray.append(accelerometer)
+
+# To ease development and debugging, we add a socket interface to our robot.
+#
+# Check here: http://www.openrobots.org/morse/doc/stable/user/integration.html 
+# the other available interfaces (like ROS, YARP...)
+#videoray.add_default_interface('ros')
+#videoray.add_default_interface('socket')
+
+# set 'fastmode' to True to switch to wireframe mode
+env = Environment('sandbox', fastmode = False)
+#env = Environment('water-1/water_scene', fastmode = True)
+#env = Environment('water-1/water_scene', fastmode = False)
+
+env.place_camera([10.0, -10.0, 10.0])
+env.aim_camera([1.05, 0, 0.78])
+
