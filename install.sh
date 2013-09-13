@@ -6,15 +6,25 @@ if [ ! -f $ENV_VAR_FILE ];
 then
     WORK_DIR=${PWD}
     NEW_FILE_PATH=${PWD}/$ENV_VAR_FILE
-    #DDS_VARS=$(readlink -f ../third-party-build/DDS/setenv.sh)
+    
+    # Default to /opt/morse for MORSE_ROOT
+    # If the morse executable is on the PATH
+    # Back up two directories from morse executable
+    # to define the MORSE_ROOT
+    MORSE_ROOT="/opt/morse"
+    MORSE_EXEC=$(which morse)    
+    if [ -x "$MORSE_EXEC" ] ; then
+        MORSE_ROOT=${MORSE_EXEC%/*}
+        MORSE_ROOT=${MORSE_ROOT%/*}
+    fi
 
     BLENDER_EXEC=$(readlink -f ~/apps/blender-2*/blender)
 
-    echo 'export MORSE_ROOT=/opt/morse' > ${ENV_VAR_FILE}
+    echo 'export MORSE_ROOT='"${MORSE_ROOT}" > ${ENV_VAR_FILE}
     
-    echo 'export PATH=/opt/morse/bin:${PATH}' >> ${ENV_VAR_FILE}
+    #echo 'export PATH=/opt/morse/bin:${PATH}' >> ${ENV_VAR_FILE}
     echo "export MORSE_BLENDER=${BLENDER_EXEC}" >> ${ENV_VAR_FILE}
-    echo 'export PYTHONPATH=/opt/morse/lib/python3.3/site-packages:${PYTHONPATH}' >> ${ENV_VAR_FILE}
+    #echo 'export PYTHONPATH=/opt/morse/lib/python3.3/site-packages:${PYTHONPATH}' >> ${ENV_VAR_FILE}
 
     echo 'export QTDIR=/usr/share/qt4' >> ${ENV_VAR_FILE}
     echo 'export PATH=${PATH}:'"~/apps/blender-2*" >> ${ENV_VAR_FILE}
@@ -38,7 +48,12 @@ then
     echo "-----------------------------------------------------"
     echo "Generated environment file"
     echo "Add the following to your .bashrc file for future use"
-    echo "        source ${NEW_FILE_PATH}"
+    echo "#-----------------------------------------------------"
+    echo "MORSE_ENV_VARS=${NEW_FILE_PATH}"
+    echo 'if [ -f ${MORSE_ENV_VARS} ]; then'
+    echo 'source ${MORSE_ENV_VARS}'
+    echo 'fi'
+    echo "#-----------------------------------------------------"
 else
     echo "Environment file already exists, execute ./uninstall.sh to remove"
 fi

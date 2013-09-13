@@ -1,15 +1,12 @@
 #!/bin/bash
 
-echo "Cleaning local..."
-rm setenv.sh
-rm config
+#echo "Cleaning local..."
+rm -rf setenv.sh
+rm -rf config
 rm -rf ~/.morse
 
-echo "Cleaning pycaches..."
-find . -name '*pycache*' -not -path "./3rd-party-build/*" | xargs rm -rf
+#echo "Cleaning pycaches..."
+find . -name '*pycache*' -not -path "./3rd-party-build/*" -exec rm -rf {} +
 
-echo "Cleaning blender files..."
-find -regex '.*blend[1234567890]' | xargs rm
-
-# Removes files from git repo that have been deleted
-#git rm $(git ls-files --deleted)
+#echo "Cleaning blender files..."
+find -regex '.*blend[1234567890]' -exec rm -rf {} +

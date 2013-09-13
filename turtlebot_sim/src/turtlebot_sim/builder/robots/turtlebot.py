@@ -4,10 +4,10 @@ class Turtlebot(Robot):
     """
     A template robot model for turtlebot, with a motion controller and a pose sensor.
     """
-    def __init__(self, debug = True):
+    def __init__(self, debug = True, name=None):
 
         # turtlebot.blend is located in the data/robots directory
-        Robot.__init__(self, 'turtlebot_sim/robots/turtlebot.blend')
+        Robot.__init__(self, 'turtlebot_sim/robots/turtlebot.blend', name)
         self.properties(classpath = "turtlebot_sim.robots.turtlebot.Turtlebot")
 
         ###################################

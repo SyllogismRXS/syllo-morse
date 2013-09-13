@@ -4,10 +4,11 @@ class Diver(Robot):
     """
     A template robot model for diver, with a motion controller and a pose sensor.
     """
-    def __init__(self, debug = True):
+    #def __init__(self, debug = True):
+    def __init__(self, name=None, debug = True):
 
         # diver.blend is located in the data/robots directory
-        Robot.__init__(self, 'diver_sim/robots/diver.blend')
+        Robot.__init__(self, 'diver_sim/robots/diver.blend', name)
         self.properties(classpath = "diver_sim.robots.diver.Diver")
 
         ###################################

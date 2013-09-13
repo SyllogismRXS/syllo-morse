@@ -4,10 +4,11 @@ class Videoray(Robot):
     """
     A template robot model for videoray, with a motion controller and a pose sensor.
     """
-    def __init__(self, debug = True):
+    #def __init__(self, debug = True):
+    def __init__(self, name=None):
 
         # videoray.blend is located in the data/robots directory
-        Robot.__init__(self, 'videoray_sim/robots/videoray.blend')
+        Robot.__init__(self, 'videoray_sim/robots/videoray.blend', name)
         self.properties(classpath = "videoray_sim.robots.videoray.Videoray")
 
         ###################################
